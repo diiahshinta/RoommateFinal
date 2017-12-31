@@ -13,8 +13,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,6 +45,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         idUser = user.getUid();
         emailUser = user.getEmail();
         dialog = new ProgressDialog(this);
+        loadData();
 
         email.setText(emailUser);
 
@@ -77,6 +81,25 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 }
             });
         }
+    }
+
+    private void loadData() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("user").child(idUser).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                if (user != null) {
+                    name.setText(user.getName());
+                    phone.setText(user.getPhone());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void saveData() {
