@@ -32,10 +32,13 @@ public class AccountActivity extends AppCompatActivity {
         name = (TextView) findViewById(R.id.Name);
         email = (TextView) findViewById(R.id.Email);
         phone = (TextView) findViewById(R.id.Phone);
+
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
         idUser = user.getUid();
         emailUser = user.getEmail();
+        email.setText(emailUser);
+        loadData();
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override

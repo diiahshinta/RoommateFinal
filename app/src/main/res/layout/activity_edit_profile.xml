@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menu_2"
+    android:background="@drawable/menu_2_720"
     tools:context="com.example.diahshintadewi.roommatefinal.EditProfileActivity">
 
     <android.support.v7.widget.LinearLayoutCompat
