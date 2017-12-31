@@ -136,7 +136,7 @@ public class ListActivity extends AppCompatActivity {
                     JSONObject json_data = jsonarray.getJSONObject(i);
                     DataList listData = new DataList();
                     listData.name= json_data.getString("name");
-                    listData.address= json_data.getJSONObject("location").getString("address");
+                    //listData.address= json_data.getJSONObject("location").getString("address");
                     data.add(listData);}
 
                 // Setup and Handover data to recyclerview
