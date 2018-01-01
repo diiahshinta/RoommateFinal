@@ -6,17 +6,30 @@ import java.io.Serializable;
  * Created by Diah Shinta Dewi on 12/29/2017.
  */
 
-public class User  implements Serializable {
-    private String name, phone;
-    public User(){
+public class User implements Serializable {
+    private String Name, Phone;
 
+    public User() {
+    }
+
+    public User(String name, String phone) {
+        Name = name;
+        Phone = phone;
     }
 
     public String getName() {
-        return name;
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getPhone() {
-        return phone;
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 }
