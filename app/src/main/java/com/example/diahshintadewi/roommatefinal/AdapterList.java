@@ -37,7 +37,6 @@ public class AdapterList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         MyHolder myHolder = (MyHolder) holder;
         DataList current = data.get(position);
         myHolder.hostelName.setText(current.name);
-        myHolder.hostelAddress.setText(current.address);
     }
 
     @Override
@@ -47,11 +46,9 @@ public class AdapterList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private class MyHolder extends RecyclerView.ViewHolder{
         TextView hostelName;
-        TextView hostelAddress;
         public MyHolder(View itemView) {
             super(itemView);
             hostelName = (TextView) itemView.findViewById(R.id.nameHostel);
-            hostelAddress = (TextView) itemView.findViewById(R.id.addressHostel);
         }
     }
 }

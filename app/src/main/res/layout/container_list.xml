@@ -2,25 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:background="@drawable/list">
+    android:layout_marginTop="5dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nameHostel"
-        android:paddingLeft="10dp"
-        android:text="Hostel Name"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addressHostel"
-        android:textSize="16dp"
-        android:paddingLeft="10dp"
-        android:text="Hostel Address"
-        android:layout_marginLeft="5dp"/>
+        android:orientation="horizontal"
+        android:background="@drawable/list">
+
+        <TextView
+            android:id="@+id/nameHostel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="10dp"
+            android:text="Hostel Name"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_marginLeft="250dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:gravity="end"
+            android:src="@drawable/iconext" />
+    </LinearLayout>
+
 
 </LinearLayout>

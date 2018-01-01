@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         view.getContext().startActivity(c);
                         break;
                     case 3:
-                        Intent d = new Intent(view.getContext(), MainActivity.class);
+                        Intent d = new Intent(view.getContext(), PoiActivity.class);
                         view.getContext().startActivity(d);
                         break;
                 }

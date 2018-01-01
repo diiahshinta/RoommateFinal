@@ -7,16 +7,28 @@ import java.io.Serializable;
  */
 
 public class User  implements Serializable {
-    private String name, phone;
+    private String Name, Phone;
     public User(){
 
     }
+    public User(String name, String phone){
+        this.Name = name;
+        this.Phone = phone;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public String getPhone() {
-        return phone;
+        return Phone;
     }
 }
