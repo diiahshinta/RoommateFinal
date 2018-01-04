@@ -7,25 +7,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:background="@drawable/list">
 
         <TextView
-            android:id="@+id/nameHostel"
-            android:layout_width="350dp"
+            android:id="@+id/nameVenue"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:paddingLeft="10dp"
-            android:text="Hostel Name"
+            android:text="Venue Name"
             android:textSize="16dp"
             android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingVenue"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="10dp"
+            android:text="Venue Rating"
+            android:textSize="16dp"
+            />
 
-        <ImageView
-            android:id="@+id/arrow"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:gravity="right"
-            android:src="@drawable/iconext" />
     </LinearLayout>
 
 

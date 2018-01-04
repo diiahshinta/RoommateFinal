@@ -24,7 +24,8 @@
         <activity android:name=".AccountActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".ListActivity" />
-        <activity android:name=".PoiActivity"></activity>
+        <activity android:name=".PoiActivity" />
+        <activity android:name=".DetailsActivity"></activity>
     </application>
 
 </manifest>

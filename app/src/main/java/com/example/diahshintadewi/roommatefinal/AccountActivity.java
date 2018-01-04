@@ -58,7 +58,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private  void loadData(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("user").child(idUser).addValueEventListener(new ValueEventListener() {
+        databaseReference.child("User").child(idUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);

@@ -113,8 +113,8 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             phone.setError("*Required");
         }
 
-        databaseReference.child(idUser).child("Name").setValue(nama);
-        databaseReference.child(idUser).child("Phone").setValue(telp);
+        databaseReference.child("User").child(idUser).child("Name").setValue(nama);
+        databaseReference.child("User").child(idUser).child("Phone").setValue(telp);
         Toast.makeText(EditProfileActivity.this, "Data saved", Toast.LENGTH_SHORT).show();
 
     }

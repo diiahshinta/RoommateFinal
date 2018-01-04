@@ -33,6 +33,8 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         new AsyncLogin().execute();
+
+
     }
 
     private class AsyncLogin extends AsyncTask<String, String, String> {
@@ -57,7 +59,7 @@ public class ListActivity extends AppCompatActivity {
 
                 // Enter URL address where your json file resides
                 // Even you can make call to php file which returns json data
-                url = new URL("https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d1ee931735&client_id=SY0DE1WXUZ4F4T3SZIYSNQLF4IVZKEUUIGU11QDPJSGYZFBC&client_secret=TQMR4RQPKDQRE3P4PJ2CAPYR1EW4AH3C2DIDMKEPP5FCRME1&v=20130815%20&near=Malang,Indonesia");
+                url = new URL("https://api.foursquare.com/v2/venues/search?categoryId=4bf58dd8d48988d1ee931735&client_id=SY0DE1WXUZ4F4T3SZIYSNQLF4IVZKEUUIGU11QDPJSGYZFBC&client_secret=TQMR4RQPKDQRE3P4PJ2CAPYR1EW4AH3C2DIDMKEPP5FCRME1&v=20130815%20&ll=-7.983908,112.621391&radius=10000");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
