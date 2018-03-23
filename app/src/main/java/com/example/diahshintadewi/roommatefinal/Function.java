@@ -57,7 +57,7 @@ public class Function {
 
     public interface AsyncResponse {
 
-        void processFinish(String output1, String output2, String output3, String output4, String output5, String output6);
+        void processFinish(String output1, String output2, String output3, String output4, String output5, String output6, String output7);
     }
 
 
@@ -72,6 +72,7 @@ public class Function {
             delegate = asyncResponse;//Assigning call back interfacethrough constructor
         }
 
+        //integrasi
         @Override
         protected JSONObject doInBackground(String... params) {
 
@@ -97,13 +98,15 @@ public class Function {
 
                     String city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                     String description = details.getString("description").toUpperCase(Locale.US);
+                    String mainDesc = details.getString("main");
+                    Log.i("Ayo", details.getString("main").toString());
                     String temperature = String.format(String.valueOf(Math.round(main.getDouble("temp"))))+ "°C";
                     String updatedOn = df.format(new Date(json.getLong("dt")*1000));
                     String iconText = setWeatherIcon(details.getInt("id"),
                             json.getJSONObject("sys").getLong("sunrise") * 1000,
                             json.getJSONObject("sys").getLong("sunset") * 1000);
 
-                    delegate.processFinish(city, description, temperature, updatedOn, iconText, ""+ (json.getJSONObject("sys").getLong("sunrise") * 1000));
+                    delegate.processFinish(city, description, mainDesc, temperature, updatedOn, iconText, ""+ (json.getJSONObject("sys").getLong("sunrise") * 1000));
 
                 }
             } catch (JSONException e) {
@@ -119,7 +122,7 @@ public class Function {
 
 
 
-
+//unit
     public static JSONObject getWeatherJSON(String lat, String lon){
         try {
             URL url = new URL(String.format(OPEN_WEATHER_MAP_URL, lat, lon));
@@ -149,5 +152,9 @@ public class Function {
         }catch(Exception e){
             return null;
         }
+    }
+
+    public void filterCondition(){
+
     }
 }

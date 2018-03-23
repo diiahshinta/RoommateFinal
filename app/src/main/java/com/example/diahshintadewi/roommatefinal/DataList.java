@@ -6,5 +6,4 @@ package com.example.diahshintadewi.roommatefinal;
 
 public class DataList {
     public String name;
-    public String address;
 }

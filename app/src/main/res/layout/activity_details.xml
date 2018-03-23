@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="10dp"
         android:orientation="vertical">
 
     <FrameLayout
@@ -18,7 +19,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="#000000"/>
+            android:background="#000000"
+            android:src="@drawable/contoh"/>
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -50,14 +52,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rating"
+                android:text="Range Harga"
                 android:textAlignment="center"
                 android:textSize="16dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8.0"
+                android:id="@+id/rangeHarga"
                 android:textAlignment="center"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -72,6 +74,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/maps"
                 android:text="See Maps"
                 android:textSize="16dp"
                 android:gravity="center"
@@ -90,27 +93,33 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/hName"
             android:paddingLeft="10dp"
-            android:text="Rumahnya bebek"
             android:textColor="#c85d8b"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/hAddress"
             android:paddingLeft="10dp"
-            android:text="Nirwana Sulfat Residence A7"
             android:textColor="#c85d8b"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:text="instagram.com/diiahshinta"
+            android:id="@+id/hWebsite"
             android:textColor="#c85d8b"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:text="087760155822"
+            android:id="@+id/hPhone"
+            android:textColor="#c85d8b"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:id="@+id/hPhone2"
             android:textColor="#c85d8b"/>
 
         <LinearLayout
@@ -146,10 +155,12 @@
         android:layout_marginLeft="10dp"
         android:orientation="vertical"
         android:background="@drawable/details">
-        <ListView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/hostelFacility"></ListView>
+            android:textSize="16dp"
+            android:text="- Free WIFI \n- Fan \n-AC"/>
+
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,10 +171,11 @@
             android:layout_marginLeft="10dp"
             android:orientation="vertical"
             android:background="@drawable/details">
-            <ListView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/roomType"></ListView>
+                android:textSize="16dp"
+                android:text="- Mixed Dormitory Basic \n- Mix Dormitory Standart \n- Female Dormitory"/>
         </LinearLayout>
 
         <TextView
@@ -181,6 +193,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:stepSize="0.5"
+            android:numStars="5"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp" />
         <EditText
@@ -190,7 +204,8 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:textSize="16dp"
-            android:hint="Add Yout Comment Here"
+            android:lines="5"
+            android:hint="Add Your Comment Here"
             android:inputType="textMultiLine"/>
         <Button
             android:layout_width="wrap_content"

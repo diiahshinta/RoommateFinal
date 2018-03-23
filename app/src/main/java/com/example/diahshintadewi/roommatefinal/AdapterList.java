@@ -1,11 +1,13 @@
 package com.example.diahshintadewi.roommatefinal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +20,7 @@ public class AdapterList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<DataList> data = Collections.emptyList();
     DataList current;
     int currentPos = 0;
+    public static String DATA_NAME = "name";
 
     public AdapterList(Context context, List<DataList> data){
         this.context = context;
@@ -34,9 +37,19 @@ public class AdapterList extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MyHolder myHolder = (MyHolder) holder;
+        final MyHolder myHolder = (MyHolder) holder;
         DataList current = data.get(position);
         myHolder.hostelName.setText(current.name);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, myHolder.hostelName.getText(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context.getApplicationContext(), DetailsActivity.class);
+                i.putExtra(DATA_NAME, myHolder.hostelName.getText());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override

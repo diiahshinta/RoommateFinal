@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/menu_2_720">
+    android:orientation="vertical"
+    android:background="@drawable/bglist">
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hostelList"
+        android:layout_marginTop="120dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"/>
-
-
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"/>
 </LinearLayout>
