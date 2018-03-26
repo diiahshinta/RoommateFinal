@@ -1,4 +1,4 @@
-package com.example.diahshintadewi.roommatefinal;
+package com.example.diahshintadewi.roommatefinal.listPage;
 
 import java.io.Serializable;
 

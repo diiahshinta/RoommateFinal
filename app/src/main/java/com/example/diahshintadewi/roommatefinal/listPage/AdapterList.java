@@ -1,4 +1,4 @@
-package com.example.diahshintadewi.roommatefinal;
+package com.example.diahshintadewi.roommatefinal.listPage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.diahshintadewi.roommatefinal.DetailsActivity;
+import com.example.diahshintadewi.roommatefinal.R;
 
 import java.util.Collections;
 import java.util.List;

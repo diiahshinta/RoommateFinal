@@ -4,29 +4,37 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/list">
+        android:layout_height="100dp"
+        android:orientation="horizontal">
 
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/tes"
+            android:scaleType="fitXY"
+            android:alpha=".50"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:alpha=".50"/>
         <TextView
             android:id="@+id/nameHostel"
-            android:layout_width="350dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:paddingLeft="10dp"
             android:text="Hostel Name"
             android:textSize="16dp"
             android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/arrow"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:gravity="right"
-            android:src="@drawable/iconext" />
-    </LinearLayout>
+    </FrameLayout>
 
 
 </LinearLayout>

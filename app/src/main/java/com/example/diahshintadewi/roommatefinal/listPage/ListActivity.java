@@ -1,4 +1,4 @@
-package com.example.diahshintadewi.roommatefinal;
+package com.example.diahshintadewi.roommatefinal.listPage;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
+
+import com.example.diahshintadewi.roommatefinal.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -130,7 +131,7 @@ public class ListActivity extends AppCompatActivity {
             try {
                 JSONObject jsonobject = new JSONObject(result);
                 JSONArray jsonarray = jsonobject.getJSONObject("response").getJSONArray("venues");
-                Toast.makeText(ListActivity.this, "isi array : "+jsonarray.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ListActivity.this, "isi array : "+jsonarray.toString(), Toast.LENGTH_SHORT).show();
 
 
                 // Extract data from json and store into ArrayList as class objects

@@ -7,26 +7,35 @@ import java.io.Serializable;
  */
 
 public class VenueData implements Serializable {
-    private String namaVenue, ratingVenue;
+    private String venueName, venueRating, venueAddress;
     public VenueData(){}
-    public VenueData(String namaVenue, String ratingVenue){
-        this.namaVenue = namaVenue;
-        this.ratingVenue = ratingVenue;
+    public VenueData(String venueName, String venueRating, String venueAddress){
+        this.venueName = venueName;
+        this.venueAddress = venueAddress;
+        this.venueRating = venueRating;
     }
 
-    public String getNamaVenue() {
-        return namaVenue;
+    public String getVenueName() {
+        return venueName;
     }
 
-    public void setNamaVenue(String namaVenue) {
-        this.namaVenue = namaVenue;
+    public void setVenueName(String venueName) {
+        this.venueName = venueName;
     }
 
-    public String getRatingVenue() {
-        return ratingVenue;
+    public String getVenueRating() {
+        return venueRating;
     }
 
-    public void setRatingVenue(String ratingVenue) {
-        this.ratingVenue = ratingVenue;
+    public void setVenueRating(String venueRating) {
+        this.venueRating = venueRating;
+    }
+
+    public String getVenueAddress() {
+        return venueAddress;
+    }
+
+    public void setVenueAddress(String venueAddress) {
+        this.venueAddress = venueAddress;
     }
 }

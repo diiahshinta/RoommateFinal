@@ -14,6 +14,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.diahshintadewi.roommatefinal.listPage.AdapterList;
+import com.example.diahshintadewi.roommatefinal.listPage.HostelData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -54,7 +56,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private void InitData(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("Hostel").addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("HostelList").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot user: dataSnapshot.getChildren()) {
@@ -102,7 +104,7 @@ public class DetailsActivity extends AppCompatActivity {
         Maps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String alamat = hostelAddress.getText().toString();
+                String alamat = hostelName.getText().toString();
                 Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + alamat);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
