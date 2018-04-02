@@ -99,12 +99,13 @@ public class Function {
                     String city = json.getString("name").toUpperCase(Locale.US) + ", " + json.getJSONObject("sys").getString("country");
                     String description = details.getString("description").toUpperCase(Locale.US);
                     String mainDesc = details.getString("main");
-                    Log.i("Ayo", details.getString("main").toString());
                     String temperature = String.format(String.valueOf(Math.round(main.getDouble("temp"))))+ "°C";
                     String updatedOn = df.format(new Date(json.getLong("dt")*1000));
                     String iconText = setWeatherIcon(details.getInt("id"),
                             json.getJSONObject("sys").getLong("sunrise") * 1000,
                             json.getJSONObject("sys").getLong("sunset") * 1000);
+
+
 
                     delegate.processFinish(city, description, mainDesc, temperature, updatedOn, iconText, ""+ (json.getJSONObject("sys").getLong("sunrise") * 1000));
 
@@ -113,9 +114,8 @@ public class Function {
                 //Log.e(LOG_TAG, "Cannot process JSON results", e);
             }
 
-
-
         }
+
     }
 
 

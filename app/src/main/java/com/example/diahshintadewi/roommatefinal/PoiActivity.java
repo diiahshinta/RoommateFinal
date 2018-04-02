@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PoiActivity extends AppCompatActivity {
-    TextView cityField, detailsField, currentTemperatureField, weatherIcon, updatedField;
+    TextView cityField, detailsField, currentTemperatureField, weatherIcon, updatedField, mainField;
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
     Typeface weatherFont;
@@ -28,6 +28,7 @@ public class PoiActivity extends AppCompatActivity {
     List<VenueData> list = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
+    Function function;
 
 
     @Override
@@ -40,24 +41,25 @@ public class PoiActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(PoiActivity.this);
         progressDialog.setMessage("Loading Data ...");
         progressDialog.show();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("Venue").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                list.clear();
-                for(DataSnapshot venueSnapshot : dataSnapshot.getChildren()){
-                    VenueData data = venueSnapshot.getValue(VenueData.class);
-                    list.add(data);
+               databaseReference = FirebaseDatabase.getInstance().getReference();
+            databaseReference.child("Venue").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    list.clear();
+                    for(DataSnapshot venueSnapshot : dataSnapshot.getChildren()){
+                        VenueData data = venueSnapshot.getValue(VenueData.class);
+                        list.add(data);
+                    }
+                    VenueAdapter adapter = new VenueAdapter(PoiActivity.this, list);
+                    recyclerView.setAdapter(adapter);
                 }
-                VenueAdapter adapter = new VenueAdapter(PoiActivity.this, list);
-                recyclerView.setAdapter(adapter);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+
 
 
         weatherFont = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/weathericons-regular-webfont.ttf");

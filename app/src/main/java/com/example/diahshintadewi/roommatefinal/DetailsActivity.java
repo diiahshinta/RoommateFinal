@@ -2,13 +2,19 @@ package com.example.diahshintadewi.roommatefinal;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -23,16 +29,26 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.vr.sdk.widgets.pano.VrPanoramaView;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DetailsActivity extends AppCompatActivity {
     ImageView wishlist, share, whatsapp, phone;
-    ListView roomType, hostelFacility;
+    ListView hostelFacility, roomType;
+    LinearLayout Maps;
     RatingBar ratingBar;
-    TextView hostelRating, hostelPrice, hostelName, hostelAddress, hostelWebsite, hostelPhone,hostelPhone2, Maps;
+    TextView hostelRating, hostelPrice, hostelName, hostelAddress, hostelWebsite, hostelPhone,hostelPhone2;
     FirebaseUser user;
     private FirebaseAuth auth;
     private DatabaseReference databaseReference;
     String namaHostel;
+    private VrPanoramaView vrPanoramaView;
+    List<String> list = new ArrayList<>();
+    private ArrayAdapter<String> adapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +56,12 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         InitComponent();
 
+
         Intent i = getIntent();
         namaHostel = i.getStringExtra(AdapterList.DATA_NAME);
         InitFirebase();
         InitData();
+        loadPhotoSphere();
         addListenerOnButtonClick();
     }
 
@@ -79,18 +97,20 @@ public class DetailsActivity extends AppCompatActivity {
                         hostelAddress.setText(data.getAlamatHostel());
                         hostelWebsite.setText(data.getWebsite());
                         hostelPhone.setText(data.getTelpHostel());
-                        hostelPrice.setText(data.getHarga());
                         hostelPhone2.setText(data.getTelp2());
                         break;
                     }
                 }
             }
 
+
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+
     }
 
     private void InitComponent() {
@@ -98,9 +118,9 @@ public class DetailsActivity extends AppCompatActivity {
         hostelAddress = (TextView) findViewById(R.id.hAddress);
         hostelWebsite = (TextView) findViewById(R.id.hWebsite);
         hostelPhone = (TextView) findViewById(R.id.hPhone);
-        hostelPrice = (TextView) findViewById(R.id.rangeHarga);
         hostelPhone2 = (TextView) findViewById(R.id.hPhone2);
-        Maps = (TextView) findViewById(R.id.maps);
+        vrPanoramaView = (VrPanoramaView) findViewById(R.id.vrPanoramaView);
+        Maps = (LinearLayout) findViewById(R.id.maps);
         Maps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,9 +166,28 @@ public class DetailsActivity extends AppCompatActivity {
                 }
             }
         });
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("fasilitasHostel");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<String> values = (ArrayList<String>) dataSnapshot.getValue();
+                recyclerView.setAdapter(new FacilityAdapter(values));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Failed to read" + databaseError.toException());
+            }
+        });
 
 
     }
+
+
     private void addListenerOnButtonClick() {
         ratingBar = (RatingBar) findViewById(R.id.ratingbar);
         final EditText comment = (EditText) findViewById(R.id.comment);
@@ -176,5 +215,37 @@ public class DetailsActivity extends AppCompatActivity {
             app_installed = false;
         }
         return app_installed;
+    }
+    private void loadPhotoSphere() {
+        VrPanoramaView.Options options = new VrPanoramaView.Options();
+        InputStream inputStream = null;
+
+        AssetManager assetManager = getAssets();
+        try {
+            inputStream = assetManager.open("pano.jpg");
+            options.inputType = VrPanoramaView.Options.TYPE_MONO;
+            vrPanoramaView.loadImageFromBitmap(BitmapFactory.decodeStream(inputStream), options);
+            inputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        vrPanoramaView.pauseRendering();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        vrPanoramaView.resumeRendering();
+    }
+
+    @Override
+    protected void onDestroy() {
+        vrPanoramaView.shutdown();
+        super.onDestroy();
     }
 }

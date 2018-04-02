@@ -6,7 +6,7 @@
 
     <com.google.vr.sdk.widgets.pano.VrPanoramaView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:id="@+id/vrPanoramaView"/>
 
     <ScrollView
@@ -72,44 +72,44 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="4">
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/hPhone" />
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/hPhone" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/hPhone2"
-                        />
-                </LinearLayout>
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="3">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/placeholder"
-                        android:id="@+id/phone"
-                        android:padding="10dp"/>
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/hPhone2"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="3">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/placeholder"
+                    android:id="@+id/phone"
+                    android:padding="10dp"/>
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/whatsapp"
-                        android:src="@drawable/whatsapp"/>
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:id="@+id/whatsapp"
+                    android:src="@drawable/whatsapp"/>
+            </LinearLayout>
             </LinearLayout>
 
 
@@ -123,10 +123,10 @@
                 android:textAlignment="center"
                 android:background="@drawable/button2"/>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
+            <ListView
+                android:id="@+id/lvFacility"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"></ListView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -200,13 +200,13 @@
         android:layout_alignParentBottom="true"
         android:weightSum="3">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
             android:layout_weight="1"
             android:id="@+id/maps"
             android:background="#50FFFFFF"
-            android:weightSum="2">
+        android:weightSum="2">
             <ImageView
                 android:id="@+id/wishlist"
                 android:layout_width="match_parent"
