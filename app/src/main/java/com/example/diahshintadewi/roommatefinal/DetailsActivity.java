@@ -47,8 +47,8 @@ public class DetailsActivity extends AppCompatActivity {
     String namaHostel;
     private VrPanoramaView vrPanoramaView;
     List<String> list = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
-    private RecyclerView recyclerView;
+    private ArrayAdapter<String> adapter, adapterRoom;
+    private RecyclerView recyclerView, recycleViewType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +79,7 @@ public class DetailsActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot user: dataSnapshot.getChildren()) {
                     String alamatHostel = user.child("alamatHostel").getValue() +"";
-                    String fasilitasHostel = user.child("fasilitasHostel").getValue() +"";
+                    ArrayList<String> fasilitasHostel = (ArrayList<String>) user.child("fasilitasHostel").getValue();
                     String gambar = user.child("gambar").getValue() +"";
                     String harga = user.child("harga").getValue() +"";
                     String komentar = user.child("komentar").getValue() +"";
@@ -87,7 +87,7 @@ public class DetailsActivity extends AppCompatActivity {
                     String ratingHostel = user.child("ratingHostel").getValue() +"";
                     String telp2 = user.child("telp2").getValue() +"";
                     String telpHostel = user.child("telpHostel").getValue() +"";
-                    String tipeKamar = user.child("tipeKamar").getValue() +"";
+                    ArrayList<String> tipeKamar = (ArrayList<String>) user.child("tipeKamar").getValue();
                     String website = user.child("website").getValue() +"";
 
                     HostelData data = new HostelData(alamatHostel, fasilitasHostel, gambar,
@@ -95,6 +95,8 @@ public class DetailsActivity extends AppCompatActivity {
                     if (namaHostel.equals(data.getNamaHostel())){
                         hostelName.setText(data.getNamaHostel());
                         hostelAddress.setText(data.getAlamatHostel());
+                        recyclerView.setAdapter(new FacilityAdapter(fasilitasHostel));
+                        recycleViewType.setAdapter(new RoomTypeAdapter(tipeKamar));
                         hostelWebsite.setText(data.getWebsite());
                         hostelPhone.setText(data.getTelpHostel());
                         hostelPhone2.setText(data.getTelp2());
@@ -169,21 +171,9 @@ public class DetailsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("fasilitasHostel");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<String> values = (ArrayList<String>) dataSnapshot.getValue();
-                recyclerView.setAdapter(new FacilityAdapter(values));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("Failed to read" + databaseError.toException());
-            }
-        });
-
+        recycleViewType = (RecyclerView) findViewById(R.id.roomType);
+        recycleViewType.setHasFixedSize(true);
+        recycleViewType.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

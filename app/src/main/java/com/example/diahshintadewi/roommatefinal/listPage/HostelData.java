@@ -1,19 +1,18 @@
 package com.example.diahshintadewi.roommatefinal.listPage;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Diah Shinta Dewi on 1/6/2018.
  */
 
 public class HostelData implements Serializable {
-    private String alamatHostel, fasilitasHostel, gambar, harga, komentar, namaHostel,  ratingHostel, tipeKamar, telp2, telpHostel, website;
+    private String alamatHostel, gambar, harga, komentar, namaHostel,  ratingHostel, telp2, telpHostel, website;
+    ArrayList<String> fasilitasHostel, tipeKamar;
 
-    public HostelData() {
 
-    }
-
-    public HostelData(String alamatHostel, String fasilitasHostel, String gambar, String harga, String komentar, String namaHostel, String ratingHostel, String tipeKamar, String telp2,  String telpHostel, String website) {
+    public HostelData(String alamatHostel, ArrayList<String> fasilitasHostel, String gambar, String harga, String komentar, String namaHostel, String ratingHostel, ArrayList<String> tipeKamar, String telp2,  String telpHostel, String website) {
         this.alamatHostel = alamatHostel;
         this.fasilitasHostel = fasilitasHostel;
         this.gambar = gambar;
@@ -67,11 +66,11 @@ public class HostelData implements Serializable {
         this.alamatHostel = alamatHostel;
     }
 
-    public String getFasilitasHostel() {
+    public ArrayList<String> getFasilitasHostel() {
         return fasilitasHostel;
     }
 
-    public void setFasilitasHostel(String fasilitasHostel) {
+    public void setFasilitasHostel(ArrayList<String> fasilitasHostel) {
         this.fasilitasHostel = fasilitasHostel;
     }
 
@@ -99,11 +98,11 @@ public class HostelData implements Serializable {
         this.namaHostel = namaHostel;
     }
 
-    public String getTipeKamar() {
+    public ArrayList<String> getTipeKamar() {
         return tipeKamar;
     }
 
-    public void setTipeKamar(String tipeKamar) {
+    public void setTipeKamar(ArrayList<String> tipeKamar) {
         this.tipeKamar = tipeKamar;
     }
 
