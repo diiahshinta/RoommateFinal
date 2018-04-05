@@ -116,6 +116,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void InitComponent() {
+        //
         hostelName = (TextView) findViewById(R.id.hName);
         hostelAddress = (TextView) findViewById(R.id.hAddress);
         hostelWebsite = (TextView) findViewById(R.id.hWebsite);
