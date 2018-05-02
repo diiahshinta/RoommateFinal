@@ -1,0 +1,348 @@
+{
+  "HostelList" : [ {
+    "alamatHostel" : "Bareng Kartini Gang 1 no 273 Malang",
+    "fasilitasHostel" : [ "Free Wifi", "Breakfast Included", "Hot Tub" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/kampoonghomestay.jpg?alt=media&token=67653a30-1140-49f8-82f8-a3b2cdfd9832",
+    "gambar360" : "",
+    "namaHostel" : "Kampoong Homestay",
+    "ratingHostel" : "",
+    "telp2" : "081332854333",
+    "telpHostel" : "0341367220",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "2 guest", "1 bed", "1 bath" ],
+      "harga" : 151.309,
+      "nama" : "Private Room"
+    } ],
+    "website" : "https://instagram.com/kampoonghomestaymalang"
+  }, {
+    "alamatHostel" : "Jalan Raya Tlogomas No 22 Malang",
+    "fasilitasHostel" : [ "Free Wifi", "Room Service", "Garden", "Free Parking", "International TV Channels" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/tlogomasguesthouse.jpg?alt=media&token=8c598662-609e-4b26-8904-26c4421e8baf",
+    "gambar360" : "",
+    "namaHostel" : "Tlogomas Guest House",
+    "ratingHostel" : "",
+    "telp2" : "085606795144",
+    "telpHostel" : "0341560602",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "Two Single Beds Or King Size Bed", "Non-Smoking Room", "Free Wifi", "Air Conditioner", "LED TV", "Complimentary Mineral Water" ],
+      "harga" : 474.998,
+      "nama" : "Deluxe Garden View"
+    }, {
+      "fasilitas" : [ "Two Single Beds Or King Size Bed", "Non-Smoking Room", "Free Wifi", "Air Conditioner", "LED TV", "Complimentary Mineral Water" ],
+      "harga" : 449.998,
+      "nama" : "Deluxe Room"
+    }, {
+      "fasilitas" : [ "Two Single Beds", "Non-Smoking Room", "Free Wifi", "Air Conditioner", "LED TV", "Complimentary Mineral Water" ],
+      "harga" : 384.998,
+      "nama" : "Superior Room"
+    }, {
+      "fasilitas" : [ "One Single Beds and One King Size Bed", "Non-Smoking Room", "Free Wifi", "Air Conditioner", "LED TV", "Complimentary Mineral Water" ],
+      "harga" : 674.998,
+      "nama" : "Family Room"
+    } ],
+    "website" : "https://tlogomasguesthouse.com"
+  }, {
+    "alamatHostel" : "Jalan Tumenggung Suryo no 28 Malang",
+    "fasilitasHostel" : [ "Airport Shuttle", "Free Wifi", "Free Parking", "Very Good Breakfast" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/pondokbackpacker.JPG?alt=media&token=5e9bc3ad-cc37-4dab-9e99-d819d607b234",
+    "gambar360" : "",
+    "namaHostel" : "Pondok Backpacker Dormitory Style",
+    "ratingHostel" : "",
+    "telp2" : "08883339960",
+    "telpHostel" : "08883339960",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "Bunk Bed", "Wifi", "Fan", "Private Curtain", "Shared Bathroom", "Shower", "Toiletries" ],
+      "harga" : 69.0,
+      "nama" : "Female Dormitory Room"
+    }, {
+      "fasilitas" : [ "Bunk Bed", "Wifi", "Fan", "Private Curtain", "Locker" ],
+      "harga" : 369.0,
+      "nama" : "Mixed Dormitory Room (Basic)"
+    }, {
+      "fasilitas" : [ "Bunk Bed", "Wifi", "Air Conditioner", "Blanket", "Private Locker", "Private Curtain", "Free Minibar" ],
+      "harga" : 104.5,
+      "nama" : "Mixed Dormitory Room (Standard)"
+    } ],
+    "website" : "www.pondokbackpacker.com"
+  }, {
+    "alamatHostel" : "Jalan Laksamana Martadinata no 32 Malang",
+    "fasilitasHostel" : [ "Free Wifi", "Free Parking", "Kitchen", "Dining Area", "TV Cable Channels" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/mador.jpg?alt=media&token=91113259-35e4-4fc7-8657-1b107699340e",
+    "gambar360" : "",
+    "namaHostel" : "MADOR - Malang Dorm Hostel",
+    "ratingHostel" : "",
+    "telp2" : "081236064910",
+    "telpHostel" : "03413012395",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "Non-Smoking Room", "Exhaust Fan", "Shared Bathroom", "Bunk Bed", "Private Curtain", "Wifi" ],
+      "harga" : 75.0,
+      "nama" : "6-Beds Dorm Female"
+    }, {
+      "fasilitas" : [ "Non-Smoking Room", "Exhaust Fan", "Shared Bathroom", "Bunk Bed", "Private Curtain", "Wifi" ],
+      "harga" : 75.0,
+      "nama" : "6-Beds Dorm Male"
+    }, {
+      "fasilitas" : [ "Non-Smoking Room", "Air Cooling", "Shared Bathroom", "Bunk Bed", "Private Curtain", "Wifi" ],
+      "harga" : 90.0,
+      "nama" : "6-Beds Female Dorm With Air Conditioning"
+    }, {
+      "fasilitas" : [ "Non-Smoking Room", "Air Cooling", "Shared Bathroom", "Bunk Bed", "Private Curtain", "Wifi" ],
+      "harga" : 90.0,
+      "nama" : "6-Beds Male Dorm With Air Conditioning"
+    } ],
+    "website" : "www.malangdorm.com"
+  }, {
+    "alamatHostel" : "Jalan Simpang Kawi no 3 Malang",
+    "fasilitasHostel" : [ "Free Wifi", "Free Parking", "Secured Parking", "Room Service", "Lift" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/radho.jpg?alt=media&token=8492d2f9-1b89-4838-a0d6-f86a99fbc686",
+    "gambar360" : "",
+    "harga" : "",
+    "namaHostel" : "Syariah Radho Suite",
+    "ratingHostel" : "",
+    "telp2" : "081805001999",
+    "telpHostel" : "03415081777",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "King Bed", "Included Breakfast", "Wifi", "Air Conditioning", "Coffee / Tea Maker", "Desk", "TV", "Complimentary Water", "Shower" ],
+      "harga" : 350.0,
+      "nama" : "Deluxe"
+    }, {
+      "fasilitas" : [ "One Double Bed or Two Single Beds", "Wifi", "Air Conditioning", "TV", "Coffee / Tea Maker", "Desk", "Complimentary Water", "Shower" ],
+      "harga" : 300.0,
+      "nama" : "Standart"
+    }, {
+      "fasilitas" : [ "King Bed", "Included Breakfast", "Wifi", "Air Conditioning", "Coffee / Tea Maker", "Desk", "TV", "Complimentary Water", "Shower" ],
+      "harga" : 325.0,
+      "nama" : "Superior"
+    } ],
+    "website" : "https://instagram.com/syariahradhosuites"
+  }, {
+    "alamatHostel" : "Jalan Patimura No 37 Klojen Malang",
+    "fasilitasHostel" : [ "Fan", "Room Service", "Free Parking", "Free Wifi", "Bar", "Breakfast", "Airport Shuttle" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/kampongtourist.jpg?alt=media&token=ce03bd65-3d51-477a-a7f8-cc4e19949d1a",
+    "gambar360" : "",
+    "namaHostel" : "Kampong Tourist",
+    "ratingHostel" : "",
+    "telp2" : "-",
+    "telpHostel" : "0341345797",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "1 Large Double Bed", "Shared Bathroom", "Fan", "Shared Toilet", "Wake-up Service", "Garden View", "Mountain View", "City View", "Wifi", "Linen", "Clothes Rack" ],
+      "harga" : 135.0,
+      "nama" : "Bunk Bed in Mixed Dormitory Room"
+    }, {
+      "fasilitas" : [ "1 Large Double Bed", "Shared Bathroom", "Fan", "Shared Toilet", "Wake-up Service", "Garden View", "Mountain View", "City View", "Wifi", "Linen", "Clothes Rack" ],
+      "harga" : 180.0,
+      "nama" : "Double Room"
+    }, {
+      "fasilitas" : [ "1 Single Bed", "Shared Bathroom", "Fan", "Shared Toilet", "Wake-up Service", "Garden View", "Mountain View", "City View", "Wifi", "Linen", "Clothes Rack" ],
+      "harga" : 75.0,
+      "nama" : "Single Bed in Mixed Dormitory Room"
+    } ],
+    "website" : ""
+  }, {
+    "alamatHostel" : "Jalan MGR Sugiyopranoto No 3 Malang",
+    "fasilitasHostel" : [ "Free Wifi", "Balcony", "Computer", "Iron", "Seating Area", "Kitchen", "Dining Area", "Electric Kettle", "Toaster" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/woodlot.jpg?alt=media&token=68e3387b-01c3-4796-be47-447556acd4f4",
+    "gambar360" : "",
+    "namaHostel" : "Woodlot Hostel",
+    "ratingHostel" : "",
+    "telp2" : "-",
+    "telpHostel" : "0341350735",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "12 Bunk Bed", "Air Conditioning", "Wifi", "Balcony", "Shared Bathroom", "Shower", "Slippers" ],
+      "harga" : 110.0,
+      "nama" : "Bunk Bed in Female Dormitory Room"
+    }, {
+      "fasilitas" : [ "12 Bunk Bed", "Air Conditioning", "Wifi", "Balcony", "Shared Bathroom", "Shower", "Slippers" ],
+      "harga" : 100.0,
+      "nama" : "Bunk Bed in Mixed Dormitory Room"
+    } ],
+    "website" : "woodlot-hostel.business.site"
+  }, {
+    "alamatHostel" : "Jalan Kawi Atas No 40 Klojen Malang",
+    "fasilitasHostel" : [ "Airport Shuttle", "Free Wifi", "Free Parking", "Breakfast" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/kawi.jpg?alt=media&token=9d2d192d-a4a3-4822-869f-dded27a1c968",
+    "gambar360" : "",
+    "namaHostel" : "New Kawi Guest House",
+    "ratingHostel" : "",
+    "telp2" : "081230129406",
+    "telpHostel" : "-",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "2 Single Beds", "Garden View", "Air Conditioning", "Private Bathroom", "Free Wifi" ],
+      "harga" : 330.0,
+      "nama" : "Deluxe Twin Room"
+    }, {
+      "fasilitas" : [ "2 Single Bed or 1 Double Bed", "Garden View", "Private Bathroom", "TV", "Closet", "Shower", "Free Toiletries", "Towels" ],
+      "harga" : 220.0,
+      "nama" : "Standart Double or Twin Room"
+    } ],
+    "website" : "guesthousenewkawi40.business.site"
+  }, {
+    "alamatHostel" : "Sigura-gura Residence Kav. 47 Jalan Bendungan Palasari Malang",
+    "fasilitasHostel" : [ "Free Wifi", "Free Parking", "Breakfast" ],
+    "gambar" : "",
+    "gambar360" : "",
+    "namaHostel" : "Griya Nelwan",
+    "ratingHostel" : "",
+    "telp2" : "-",
+    "telpHostel" : "0341583182",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "1 Large Double Bed", "Terrace, Free Wifi", "Balcony", "Seating Area", "Fan", "Shower", "Shared Bathroom", "Shared Toilet", "Kitchenette" ],
+      "harga" : 162.5,
+      "nama" : "Queen Room"
+    } ],
+    "website" : ""
+  }, {
+    "alamatHostel" : "Jalan Veteran No 6B Universitas Brawijaya Malang",
+    "fasilitasHostel" : "",
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/youth.jpg?alt=media&token=29ceb065-c1db-4781-b78d-92de296d3447",
+    "gambar360" : "",
+    "namaHostel" : "Youth Hostel UB",
+    "ratingHostel" : "",
+    "telp2" : "-",
+    "telpHostel" : "0341560371",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "Breakfast for 2 People (Box)", "Water Heater", "TV in the Lobby", "Amenities", "Shared Bathroom" ],
+      "harga" : 175000,
+      "nama" : "Standart"
+    }, {
+      "fasilitas" : [ "Breakfast for 2 People (Box)", "Water Heater", "TV", "AC", "Amenities", "Private Bathroom" ],
+      "harga" : 250.0,
+      "nama" : "Superior"
+    } ],
+    "website" : ""
+  }, {
+    "alamatHostel" : "Jalan Tenaga Baru I no 15 Malang",
+    "fasilitasHostel" : "",
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/royal-inn.jpg?alt=media&token=3fc3c416-b31b-4d61-9233-da5ead093210",
+    "gambar360" : "",
+    "namaHostel" : "Royal Inn Transit Hotel",
+    "ratingHostel" : "",
+    "telp2" : "-",
+    "telpHostel" : "0341494440",
+    "tipeKamar" : [ {
+      "fasilitas" : "",
+      "harga" : 150.0,
+      "nama" : "Deluxe"
+    }, {
+      "fasilitas" : "",
+      "harga" : 225.0,
+      "nama" : "Suite"
+    } ],
+    "website" : ""
+  }, {
+    "alamatHostel" : "Jalan Semeru no 59 Malang",
+    "fasilitasHostel" : [ "Airport Shuttle", "Non-Smoking Room", "Room Service", "Free Wifi", "Family Room", "Free Parking" ],
+    "gambar" : "https://firebasestorage.googleapis.com/v0/b/roommatefinal.appspot.com/o/kertanegara.jpg?alt=media&token=358c6a0d-b6f0-4b8b-aa77-a041d36946db",
+    "gambar360" : "",
+    "namaHostel" : "Kertanegara premium guest house",
+    "ratingHostel" : "",
+    "telp2" : "081333315177",
+    "telpHostel" : "0341368992",
+    "tipeKamar" : [ {
+      "fasilitas" : [ "2 Single Beds", "Air Conditioning", "Private Bathroom", "Flat-screen TV", "Shower", "Safety Deposit Box", "Telephone", "Hairdryer", "Cable Channels", "Electric Kettle" ],
+      "harga" : 339.0,
+      "nama" : "Economy Twin Room"
+    }, {
+      "fasilitas" : [ "1 Large Double Bed", "Air Conditioning", "Private Bathroom", "Flat-screen TV", "Shower", "Safety Deposit Box", "Telephone", "Hairdryer", "Cable Channels", "Electric Kettle" ],
+      "harga" : 375.0,
+      "nama" : "Standart Double Room"
+    }, {
+      "fasilitas" : [ "1 Large Double Bed", "Air Conditioning", "Private Bathroom", "Flat-screen TV", "Shower", "Safety Deposit Box", "Telephone", "Hairdryer", "Cable Channels", "Electric Kettle" ],
+      "harga" : 409.0,
+      "nama" : "Standart King Room"
+    }, {
+      "fasilitas" : [ "2 Large Double Bed", "Air Conditioning", "Private Bathroom", "Flat-screen TV", "Shower", "Safety Deposit Box", "Telephone", "Hairdryer", "Cable Channels", "Electric Kettle" ],
+      "harga" : 665.0,
+      "nama" : "Superior Family Room"
+    } ],
+    "website" : "kertanegaraguesthouse.com"
+  } ],
+  "Venue" : [ {
+    "venueAddress" : "Jalan Guntur No 23 Malang",
+    "venueCategory" : "both",
+    "venueName" : "The Coffe Library Malang",
+    "venueRating" : "9.1"
+  }, {
+    "venueAddress" : "Jalan Pahlawan Trip A-8 Malang",
+    "venueCategory" : "indoor",
+    "venueName" : "The Harvest Patissier & Chocolatier",
+    "venueRating" : "9"
+  }, {
+    "venueAddress" : "Malang City Point",
+    "venueCategory" : "both",
+    "venueName" : "Starbucks",
+    "venueRating" : "9"
+  }, {
+    "venueAddress" : "Jalan Jakarta No 26 Malang",
+    "venueCategory" : "both",
+    "venueName" : "Warung Pasta",
+    "venueRating" : "9"
+  }, {
+    "venueAddress" : "Jalan Mundu No 8 Malang",
+    "venueCategory" : "both",
+    "venueName" : "Roti Bunz Bistro",
+    "venueRating" : "8.9"
+  }, {
+    "venueAddress" : "Jalan Pahlawan Trip Kav.  Malang",
+    "venueCategory" : "both",
+    "venueName" : "Javanine",
+    "venueRating" : "8.8"
+  }, {
+    "venueAddress" : "Jalan K.H Zainul Arifin No 62 Malang",
+    "venueCategory" : "indoor",
+    "venueName" : "Depot Rawon Nguling",
+    "venueRating" : "8.8"
+  }, {
+    "venueAddress" : "Ijen Nirwana Residence Blok A No 16 Malang",
+    "venueCategory" : "indoor",
+    "venueName" : "KDS Restaurant",
+    "venueRating" : "8.7"
+  }, {
+    "venueAddress" : "Jalan Sanan No 30 Malang",
+    "venueCategory" : "indoor",
+    "venueName" : "Lancar Jaya Pusat Oleh Oleh",
+    "venueRating" : "8.7"
+  }, {
+    "venueAddress" : "Villa Puncak Tidar Blok H No 14 Malang",
+    "venueCategory" : "both",
+    "venueName" : "KL Express",
+    "venueRating" : "8.7"
+  }, {
+    "venueAddress" : "Jalan Araya Megah No 9 Malang",
+    "venueCategory" : "both",
+    "venueName" : "Taman Indie",
+    "venueRating" : "8.6"
+  }, {
+    "venueAddress" : "Jalan Kalpataru No 110 Malang",
+    "venueCategory" : "indoor",
+    "venueName" : "Lenong Rumpi Kopitown",
+    "venueRating" : "8.6"
+  }, {
+    "venueAddress" : "Jalan Kahuripan No 12 Malang",
+    "venueCategory" : "both",
+    "venueName" : "Java Dancer Coffe",
+    "venueRating" : "8.6"
+  }, {
+    "venueAddress" : "Jalan Tenes No 10 Malang",
+    "venueCategory" : "indoor",
+    "venueName" : "Khayangan - Premium Reflexology and Relax",
+    "venueRating" : "8.6"
+  }, {
+    "venueAddress" : "Jalan Greenwood Golf Utama Mansion",
+    "venueCategory" : "both",
+    "venueName" : "Djati Lounge",
+    "venueRating" : "8.6"
+  }, {
+    "venueAddress" : "Jalan Esberg W1/8 Tidar Malang",
+    "venueCategory" : "both",
+    "venueName" : "The Ego Caf�",
+    "venueRating" : "8.5"
+  }, {
+    "venueAddress" : "Ruko Grand Soekarno Hatta",
+    "venueCategory" : "indoor",
+    "venueName" : "PIA Cap Mangkok",
+    "venueRating" : "8.5"
+  }, {
+    "venueName" : ""
+  } ]
+}
