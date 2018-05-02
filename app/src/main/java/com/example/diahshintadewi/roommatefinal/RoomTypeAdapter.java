@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 class RoomTypeAdapter extends RecyclerView.Adapter<RoomTypeAdapter.ViewHolder>{
     private ArrayList<String> data;
-    RoomTypeAdapter(ArrayList<String> values){
+    RoomTypeAdapter(ArrayList<String> data){
         this.data = data;
     }
     @Override

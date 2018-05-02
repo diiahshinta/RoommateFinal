@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         view.getContext().startActivity(a);
                         break;
                     case 1:
-                        Intent b = new Intent(view.getContext(), MainActivity.class);
+                        Intent b = new Intent(view.getContext(), WishlistActivity.class);
                         view.getContext().startActivity(b);
                         break;
                     case 2:

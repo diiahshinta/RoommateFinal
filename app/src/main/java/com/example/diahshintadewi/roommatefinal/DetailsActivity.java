@@ -28,6 +28,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.vr.sdk.widgets.pano.VrPanoramaView;
 
@@ -38,17 +39,20 @@ import java.util.List;
 public class DetailsActivity extends AppCompatActivity {
     ImageView wishlist, share, whatsapp, phone;
     ListView hostelFacility, roomType;
-    LinearLayout Maps;
+    LinearLayout Wish, Maps, Share;
     RatingBar ratingBar;
-    TextView hostelRating, hostelPrice, hostelName, hostelAddress, hostelWebsite, hostelPhone,hostelPhone2;
+    TextView hostelRating, hostelPrice, hostelName, hostelAddress, hostelWebsite, hostelPhone,hostelPhone2, anotherPhoto;
     FirebaseUser user;
     private FirebaseAuth auth;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference, dbReference;
     String namaHostel;
     private VrPanoramaView vrPanoramaView;
     List<String> list = new ArrayList<>();
     private ArrayAdapter<String> adapter, adapterRoom;
     private RecyclerView recyclerView, recycleViewType;
+    private User usr;
+    private Wishlist wish;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,23 +84,26 @@ public class DetailsActivity extends AppCompatActivity {
                 for (DataSnapshot user: dataSnapshot.getChildren()) {
                     String alamatHostel = user.child("alamatHostel").getValue() +"";
                     ArrayList<String> fasilitasHostel = (ArrayList<String>) user.child("fasilitasHostel").getValue();
+                    //String gambar360 = user.child("gambar360").getValue();
+                    GenericTypeIndicator<List<String>> gti = new GenericTypeIndicator<List<String>>() {};
+                    String nama = user.child("tipeKamar").child("nama").getValue(String.class);
+                    List<String> fasilitas = user.child("tipeKamar").child("fasilitas").getValue(gti);
+                    String harga = user.child("tipeKamar").child("harga").getValue(String.class);
                     String gambar = user.child("gambar").getValue() +"";
-                    String harga = user.child("harga").getValue() +"";
                     String komentar = user.child("komentar").getValue() +"";
                     String nameHostel = user.child("namaHostel").getValue() +"";
                     String ratingHostel = user.child("ratingHostel").getValue() +"";
                     String telp2 = user.child("telp2").getValue() +"";
                     String telpHostel = user.child("telpHostel").getValue() +"";
-                    ArrayList<String> tipeKamar = (ArrayList<String>) user.child("tipeKamar").getValue();
+//                    RoomType roomType1 = (RoomType) user.child("tipeKamar").getValue();
                     String website = user.child("website").getValue() +"";
 
                     HostelData data = new HostelData(alamatHostel, fasilitasHostel, gambar,
-                            harga, komentar, nameHostel, ratingHostel, tipeKamar, telp2, telpHostel, website);
+                            harga, komentar, nameHostel, ratingHostel, telp2, telpHostel, website);
                     if (namaHostel.equals(data.getNamaHostel())){
                         hostelName.setText(data.getNamaHostel());
                         hostelAddress.setText(data.getAlamatHostel());
                         recyclerView.setAdapter(new FacilityAdapter(fasilitasHostel));
-                        recycleViewType.setAdapter(new RoomTypeAdapter(tipeKamar));
                         hostelWebsite.setText(data.getWebsite());
                         hostelPhone.setText(data.getTelpHostel());
                         hostelPhone2.setText(data.getTelp2());
@@ -116,13 +123,45 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void InitComponent() {
-        //
+
+
         hostelName = (TextView) findViewById(R.id.hName);
         hostelAddress = (TextView) findViewById(R.id.hAddress);
         hostelWebsite = (TextView) findViewById(R.id.hWebsite);
         hostelPhone = (TextView) findViewById(R.id.hPhone);
         hostelPhone2 = (TextView) findViewById(R.id.hPhone2);
         vrPanoramaView = (VrPanoramaView) findViewById(R.id.vrPanoramaView);
+        Wish = (LinearLayout) findViewById(R.id.wish);
+        Wish.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String idUser = user.getUid();
+                String wishId = databaseReference.push().getKey();
+                String Hnama = hostelName.getText().toString();
+                String Halamat = hostelAddress.getText().toString();
+                String Htelpon = hostelPhone.getText().toString();
+                dbReference = FirebaseDatabase.getInstance().getReference();
+                dbReference.child("Wishlist").child(idUser).child(wishId).child("namaHostel").setValue(Hnama);
+                dbReference.child("Wishlist").child(idUser).child(wishId).child("alamatHostel").setValue(Halamat);
+                dbReference.child("Wishlist").child(idUser).child(wishId).child("telponHostel").setValue(Htelpon);
+                Toast.makeText(DetailsActivity.this, "Wishlist Saved", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Share = (LinearLayout) findViewById(R.id.share);
+        Share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentu = new Intent(Intent.ACTION_SEND);
+                intentu.setType("text/plain");
+                String namaHostel = hostelName.getText().toString();
+                String alamat = hostelAddress.getText().toString();
+                String roommate = "This information from Roommate App";
+                intentu.putExtra(Intent.EXTRA_SUBJECT, namaHostel);
+                intentu.putExtra(Intent.EXTRA_TEXT, alamat + "\n" + roommate);
+                startActivity(Intent.createChooser(intentu, "Share using"));
+
+            }
+        });
         Maps = (LinearLayout) findViewById(R.id.maps);
         Maps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,11 +227,13 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseUser user = auth.getCurrentUser();
                 String idUser = user.getUid();
+                String nama = hostelName.getText().toString();
+                String idFeedback = databaseReference.push().getKey();
                 String rating = String.valueOf(ratingBar.getRating());
                 String komentar = comment.getText().toString().trim();
-//                databaseReference.child("Hostel").child(0).child("Ratings").child(idUser).child("rating").setValue(rating);
-//                databaseReference.child("Ratings").child(idUser).child("rating").setValue(komentar);
-//                Toast.makeText(DetailsActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                //user.child("Feedback").child(idFeedback).child("rating").setValue(rating);
+                databaseReference.child("HostelList").child(nama).child("Feedback").child(idFeedback).child("komentar").setValue(komentar);
+                Toast.makeText(DetailsActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
             }
         });
     }

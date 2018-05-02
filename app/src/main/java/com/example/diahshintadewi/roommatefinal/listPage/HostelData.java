@@ -9,22 +9,34 @@ import java.util.ArrayList;
 
 public class HostelData implements Serializable {
     private String alamatHostel, gambar, harga, komentar, namaHostel,  ratingHostel, telp2, telpHostel, website;
-    ArrayList<String> fasilitasHostel, tipeKamar;
+    ArrayList<String> fasilitasHostel;
+    //RoomType roomType;
 
 
-    public HostelData(String alamatHostel, ArrayList<String> fasilitasHostel, String gambar, String harga, String komentar, String namaHostel, String ratingHostel, ArrayList<String> tipeKamar, String telp2,  String telpHostel, String website) {
+    public HostelData(String alamatHostel,  ArrayList<String> fasilitasHostel, String gambar, String harga, String komentar, String namaHostel, String ratingHostel, String telp2,  String telpHostel, String website) {
         this.alamatHostel = alamatHostel;
+        //this.roomType = roomType;
         this.fasilitasHostel = fasilitasHostel;
         this.gambar = gambar;
+        //this.gambar360 = gambar360;
         this.harga = harga;
         this.komentar = komentar;
         this.namaHostel = namaHostel;
         this.ratingHostel = ratingHostel;
-        this.tipeKamar = tipeKamar;
         this.telp2 = telp2;
         this.telpHostel = telpHostel;
         this.website = website;
     }
+
+
+
+//    public ArrayList<String> getGambar360() {
+//        return gambar360;
+//    }
+//
+//    public void setGambar360(ArrayList<String> gambar360) {
+//        this.gambar360 = gambar360;
+//    }
 
     public String getTelp2() {
         return telp2;
@@ -98,13 +110,6 @@ public class HostelData implements Serializable {
         this.namaHostel = namaHostel;
     }
 
-    public ArrayList<String> getTipeKamar() {
-        return tipeKamar;
-    }
-
-    public void setTipeKamar(ArrayList<String> tipeKamar) {
-        this.tipeKamar = tipeKamar;
-    }
 
     public String getWebsite() {
         return website;
