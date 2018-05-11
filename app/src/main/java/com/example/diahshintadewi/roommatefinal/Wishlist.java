@@ -7,13 +7,22 @@ import java.io.Serializable;
  */
 
 public class Wishlist implements Serializable{
-    private String namaHostel, alamatHostel, telponHostel;
+    private String namaHostel, alamatHostel, telponHostel, wishlistId;
     public Wishlist(){}
 
-    public Wishlist(String namaHostel, String alamatHostel, String teleponHostel){
+    public Wishlist(String namaHostel, String alamatHostel, String teleponHostel, String wishlistId){
         this.namaHostel = namaHostel;
         this.alamatHostel = alamatHostel;
         this.telponHostel = telponHostel;
+        this.wishlistId = wishlistId;
+    }
+
+    public String getWishlistId() {
+        return wishlistId;
+    }
+
+    public void setWishlistId(String wishlistId) {
+        this.wishlistId = wishlistId;
     }
 
     public String getNamaHostel() {

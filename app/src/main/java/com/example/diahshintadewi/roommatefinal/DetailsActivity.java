@@ -3,6 +3,7 @@ package com.example.diahshintadewi.roommatefinal;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,20 +29,23 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.vr.sdk.widgets.pano.VrPanoramaView;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.BitmapCallback;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 public class DetailsActivity extends AppCompatActivity {
     ImageView wishlist, share, whatsapp, phone;
     ListView hostelFacility, roomType;
     LinearLayout Wish, Maps, Share;
     RatingBar ratingBar;
-    TextView hostelRating, hostelPrice, hostelName, hostelAddress, hostelWebsite, hostelPhone,hostelPhone2, anotherPhoto;
+    TextView hostelRating, hostelPrice, hostelName, hostelAddress, hostelWebsite, hostelPhone,hostelPhone2, url, anotherPhoto;
     FirebaseUser user;
     private FirebaseAuth auth;
     private DatabaseReference databaseReference, dbReference;
@@ -49,7 +53,7 @@ public class DetailsActivity extends AppCompatActivity {
     private VrPanoramaView vrPanoramaView;
     List<String> list = new ArrayList<>();
     private ArrayAdapter<String> adapter, adapterRoom;
-    private RecyclerView recyclerView, recycleViewType;
+    private RecyclerView recyclerView, recycleViewType, mGallery;
     private User usr;
     private Wishlist wish;
 
@@ -65,11 +69,10 @@ public class DetailsActivity extends AppCompatActivity {
         namaHostel = i.getStringExtra(AdapterList.DATA_NAME);
         InitFirebase();
         InitData();
-        loadPhotoSphere();
+        initPanoView();
+        //loadPhotoSphere();
         addListenerOnButtonClick();
     }
-
-
 
     private void InitFirebase(){
         auth = FirebaseAuth.getInstance();
@@ -84,24 +87,26 @@ public class DetailsActivity extends AppCompatActivity {
                 for (DataSnapshot user: dataSnapshot.getChildren()) {
                     String alamatHostel = user.child("alamatHostel").getValue() +"";
                     ArrayList<String> fasilitasHostel = (ArrayList<String>) user.child("fasilitasHostel").getValue();
-                    //String gambar360 = user.child("gambar360").getValue();
-                    GenericTypeIndicator<List<String>> gti = new GenericTypeIndicator<List<String>>() {};
-                    String nama = user.child("tipeKamar").child("nama").getValue(String.class);
-                    List<String> fasilitas = user.child("tipeKamar").child("fasilitas").getValue(gti);
-                    String harga = user.child("tipeKamar").child("harga").getValue(String.class);
+//                    ArrayList<String> gambar360 = (ArrayList<String>) user.child("gambar360").getValue();
                     String gambar = user.child("gambar").getValue() +"";
                     String komentar = user.child("komentar").getValue() +"";
                     String nameHostel = user.child("namaHostel").getValue() +"";
                     String ratingHostel = user.child("ratingHostel").getValue() +"";
                     String telp2 = user.child("telp2").getValue() +"";
                     String telpHostel = user.child("telpHostel").getValue() +"";
-//                    RoomType roomType1 = (RoomType) user.child("tipeKamar").getValue();
+                    /*tipekamar = user.child("tipeKamar").getChildren();
+                    Map<String, String> fasilitas = tipekamar.child("fasilitas").getValue(Map.class);
+                    String nama = tipekamar.child("nama").getValue(String.class);
+                    String harga = tipekamar.child("harga").getValue(String.class);
+                    Log.i("okefasilitas", String.valueOf(fasilitas));
+                    Log.i("okenama", nama);
+                    Log.i("okeharga", harga);*/
                     String website = user.child("website").getValue() +"";
 
-                    HostelData data = new HostelData(alamatHostel, fasilitasHostel, gambar,
-                            harga, komentar, nameHostel, ratingHostel, telp2, telpHostel, website);
+                    HostelData data = new HostelData(alamatHostel, fasilitasHostel, gambar, komentar, nameHostel, ratingHostel, telp2, telpHostel, website);
                     if (namaHostel.equals(data.getNamaHostel())){
                         hostelName.setText(data.getNamaHostel());
+                        url.setText(data.getGambar());
                         hostelAddress.setText(data.getAlamatHostel());
                         recyclerView.setAdapter(new FacilityAdapter(fasilitasHostel));
                         hostelWebsite.setText(data.getWebsite());
@@ -120,6 +125,8 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     private void InitComponent() {
@@ -130,7 +137,6 @@ public class DetailsActivity extends AppCompatActivity {
         hostelWebsite = (TextView) findViewById(R.id.hWebsite);
         hostelPhone = (TextView) findViewById(R.id.hPhone);
         hostelPhone2 = (TextView) findViewById(R.id.hPhone2);
-        vrPanoramaView = (VrPanoramaView) findViewById(R.id.vrPanoramaView);
         Wish = (LinearLayout) findViewById(R.id.wish);
         Wish.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -141,6 +147,7 @@ public class DetailsActivity extends AppCompatActivity {
                 String Halamat = hostelAddress.getText().toString();
                 String Htelpon = hostelPhone.getText().toString();
                 dbReference = FirebaseDatabase.getInstance().getReference();
+                dbReference.child("Wishlist").child(idUser).child(wishId).child("wishlistId").setValue(wishId);
                 dbReference.child("Wishlist").child(idUser).child(wishId).child("namaHostel").setValue(Hnama);
                 dbReference.child("Wishlist").child(idUser).child(wishId).child("alamatHostel").setValue(Halamat);
                 dbReference.child("Wishlist").child(idUser).child(wishId).child("telponHostel").setValue(Htelpon);
@@ -214,8 +221,13 @@ public class DetailsActivity extends AppCompatActivity {
         recycleViewType = (RecyclerView) findViewById(R.id.roomType);
         recycleViewType.setHasFixedSize(true);
         recycleViewType.setLayoutManager(new LinearLayoutManager(this));
+//        mGallery = (RecyclerView) findViewById(R.id.frame);
+//        mGallery.setHasFixedSize(true);
+//        mGallery.setLayoutManager(new LinearLayoutManager(this));
+
 
     }
+
 
 
     private void addListenerOnButtonClick() {
@@ -231,8 +243,8 @@ public class DetailsActivity extends AppCompatActivity {
                 String idFeedback = databaseReference.push().getKey();
                 String rating = String.valueOf(ratingBar.getRating());
                 String komentar = comment.getText().toString().trim();
-                //user.child("Feedback").child(idFeedback).child("rating").setValue(rating);
-                databaseReference.child("HostelList").child(nama).child("Feedback").child(idFeedback).child("komentar").setValue(komentar);
+                databaseReference.child(idUser).child("Feedback").child(idFeedback).child(nama).child("komentar").setValue(komentar);
+                databaseReference.child(idUser).child("Feedback").child(idFeedback).child(nama).child("rating").setValue(rating);
                 Toast.makeText(DetailsActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
             }
         });
@@ -248,10 +260,24 @@ public class DetailsActivity extends AppCompatActivity {
         }
         return app_installed;
     }
+    private void initPanoView() {
+
+        vrPanoramaView = (VrPanoramaView) findViewById(R.id.vrPanoramaView);
+        Intent intent = getIntent();
+        String url1 = intent.getStringExtra(String.valueOf(url));
+        OkGo.get(url1).cacheKey(url1).execute(new BitmapCallback() {
+            @Override
+            public void onSuccess(Bitmap bitmap, Call call, okhttp3.Response response) {
+                VrPanoramaView.Options options = new VrPanoramaView.Options();
+                options.inputType = VrPanoramaView.Options.TYPE_MONO;
+                vrPanoramaView.loadImageFromBitmap(bitmap, options);
+            }
+        });
+
+    }
     private void loadPhotoSphere() {
         VrPanoramaView.Options options = new VrPanoramaView.Options();
         InputStream inputStream = null;
-
         AssetManager assetManager = getAssets();
         try {
             inputStream = assetManager.open("pano.jpg");

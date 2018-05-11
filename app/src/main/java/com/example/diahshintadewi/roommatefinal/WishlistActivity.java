@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +21,7 @@ public class WishlistActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     List<Wishlist> list = new ArrayList<>();
     RecyclerView recyclerView;
+    ImageView hapus;
     RecyclerView.Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,8 @@ public class WishlistActivity extends AppCompatActivity {
         databaseReference.child("Wishlist").child(idUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot wishSnapshot : dataSnapshot.getChildren()){
+                list.clear();
+                for (DataSnapshot wishSnapshot : dataSnapshot.getChildren()) {
                     Wishlist data = wishSnapshot.getValue(Wishlist.class);
                     list.add(data);
                 }
@@ -50,24 +51,5 @@ public class WishlistActivity extends AppCompatActivity {
 
             }
         });
-        ImageView hapus = (ImageView) findViewById(R.id.hapusWishlist);
-        hapus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                databaseReference = FirebaseDatabase.getInstance().getReference();
-                databaseReference.child("Wishlist").child(idUser).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot snap : dataSnapshot.getChildren()){
-                            snap.getRef().removeValue();
-                        }
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
 
-                    }
-                });
-            }
-        });
-    }
-}
+    }}

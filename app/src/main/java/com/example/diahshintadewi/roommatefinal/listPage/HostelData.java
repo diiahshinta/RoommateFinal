@@ -2,23 +2,24 @@ package com.example.diahshintadewi.roommatefinal.listPage;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by Diah Shinta Dewi on 1/6/2018.
  */
 
 public class HostelData implements Serializable {
-    private String alamatHostel, gambar, harga, komentar, namaHostel,  ratingHostel, telp2, telpHostel, website;
-    ArrayList<String> fasilitasHostel;
-    //RoomType roomType;
+    private String alamatHostel, gambar, nama, harga, komentar, namaHostel, ratingHostel, telp2, telpHostel, website;
+    ArrayList<String> fasilitasHostel, gambar360;
+    Map<String, String> fasilitas;
 
 
-    public HostelData(String alamatHostel,  ArrayList<String> fasilitasHostel, String gambar, String harga, String komentar, String namaHostel, String ratingHostel, String telp2,  String telpHostel, String website) {
+    public HostelData(String alamatHostel, ArrayList<String> fasilitasHostel, String gambar,  String komentar, String namaHostel, String ratingHostel, String telp2, String telpHostel, String website) {
         this.alamatHostel = alamatHostel;
         //this.roomType = roomType;
         this.fasilitasHostel = fasilitasHostel;
         this.gambar = gambar;
-        //this.gambar360 = gambar360;
+        this.gambar360 = gambar360;
         this.harga = harga;
         this.komentar = komentar;
         this.namaHostel = namaHostel;
@@ -28,15 +29,10 @@ public class HostelData implements Serializable {
         this.website = website;
     }
 
+    public HostelData() {
 
+    }
 
-//    public ArrayList<String> getGambar360() {
-//        return gambar360;
-//    }
-//
-//    public void setGambar360(ArrayList<String> gambar360) {
-//        this.gambar360 = gambar360;
-//    }
 
     public String getTelp2() {
         return telp2;
@@ -46,13 +42,6 @@ public class HostelData implements Serializable {
         this.telp2 = telp2;
     }
 
-    public String getHarga() {
-        return harga;
-    }
-
-    public void setHarga(String harga) {
-        this.harga = harga;
-    }
 
     public String getTelpHostel() {
         return telpHostel;
