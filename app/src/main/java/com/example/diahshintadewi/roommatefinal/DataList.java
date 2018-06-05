@@ -1,4 +1,4 @@
-package com.example.diahshintadewi.roommatefinal.listPage;
+package com.example.diahshintadewi.roommatefinal;
 
 /**
  * Created by Diah Shinta Dewi on 12/29/2017.

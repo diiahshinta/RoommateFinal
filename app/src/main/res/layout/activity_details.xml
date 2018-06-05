@@ -52,15 +52,17 @@
                         />
 
                 </LinearLayout>
+
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
-                    android:textStyle="bold"
                     android:background="#50ffffff"
+                    android:gravity="center"
                     android:text="Rating\n9.0"
                     android:textAlignment="center"
-                    android:gravity="center"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView

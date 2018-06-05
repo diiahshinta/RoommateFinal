@@ -1,7 +1,8 @@
-package com.example.diahshintadewi.roommatefinal.listPage;
+package com.example.diahshintadewi.roommatefinal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,29 +11,35 @@ import java.util.Map;
 
 public class HostelData implements Serializable {
     private String alamatHostel, gambar, nama, harga, komentar, namaHostel, ratingHostel, telp2, telpHostel, website;
-    ArrayList<String> fasilitasHostel, gambar360;
+    ArrayList<String> fasilitasHostel;
+    List<RoomType> tipe;
+    RoomType tipeKamar;
     Map<String, String> fasilitas;
 
 
-    public HostelData(String alamatHostel, ArrayList<String> fasilitasHostel, String gambar,  String komentar, String namaHostel, String ratingHostel, String telp2, String telpHostel, String website) {
-        this.alamatHostel = alamatHostel;
-        //this.roomType = roomType;
+    public HostelData(String alamatHostel, ArrayList<String> fasilitasHostel, String gambar, String komentar, String namaHostel, String ratingHostel, String telp2, String telpHostel, String website) {
+            this.alamatHostel = alamatHostel;
         this.fasilitasHostel = fasilitasHostel;
+        this.tipeKamar = tipeKamar;
         this.gambar = gambar;
-        this.gambar360 = gambar360;
-        this.harga = harga;
         this.komentar = komentar;
         this.namaHostel = namaHostel;
         this.ratingHostel = ratingHostel;
         this.telp2 = telp2;
         this.telpHostel = telpHostel;
         this.website = website;
-    }
-
-    public HostelData() {
 
     }
 
+
+
+    public RoomType getTipeKamar() {
+        return tipeKamar;
+    }
+
+    public void setTipeKamar(RoomType tipeKamar) {
+        this.tipeKamar = tipeKamar;
+    }
 
     public String getTelp2() {
         return telp2;
